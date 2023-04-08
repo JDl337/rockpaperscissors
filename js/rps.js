@@ -24,7 +24,9 @@ function playRound(playerSelection, computerSelection) {
     return 0; //The player loses because we checked all the win conditions
 }
 
-function game() { let playerScore = 0;
+function game() { 
+    let playerScore = 0;
+    let computerScore = 0;
     let playerSelection;
     let roundResult = 0;
     for (let i = 0; i < 5; i++) {
@@ -32,15 +34,20 @@ function game() { let playerScore = 0;
         playerSelection = prompt(`Round ${i+1} Enter your choice: `);
         roundResult = playRound(playerSelection, getComputerChoice());
 
-        if (roundResult === 1)
+        if (roundResult === 1) {
             console.log("You win this round!");
-        else
+            playerScore++;
+        } else if (roundResult === 2) {
+            console.log("This round is a draw!");
+        } else {
             console.log("You lose this round.");
-
-        playerScore += roundResult;
+            computerScore++;
+        }
     }
-    if (playerScore >= 3)
+    if (playerScore > computerScore)
         console.log("You Win!");
+    else if (computerScore === playerScore)
+        console.log("Its a draw!");
     else
         console.log("You lose...");
 }
