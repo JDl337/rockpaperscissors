@@ -24,8 +24,22 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     let playerScore = 0;
+    let playerSelection;
+    let roundResult = 0;
     for (let i = 0; i < 5; i++) {
-        playerScore += playRound(playerSelection, getComputerChoice());
+        console.log(`Round ${i+1} starts...`);
+        playerSelection = prompt(`Round ${i+1} Enter your choice: `);
+        roundResult = playRound(playerSelection, getComputerChoice());
+
+        if (roundResult === 1)
+            console.log("You win this round!");
+        else
+            console.log("You lose this round.");
+
+        playerScore += roundResult;
     }
-    return playerScore;
+    if (playerScore >= 3)
+        console.log("You Win!");
+    else
+        console.log("You lose...");
 }
