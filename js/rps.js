@@ -9,7 +9,7 @@ function getComputerChoice() {
         return 'scissors';
 }
 
-//Return 1 if the player wins, 0 otherwise
+//Return 1 if the player wins, 0 otherwise, -1 for a draw
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'rock' && computerSelection === 'scissors')
         return 1;
@@ -19,9 +19,9 @@ function playRound(playerSelection, computerSelection) {
         return 1;
 
     if (playerSelection === computerSelection)
-        return 2; //check for a draw
+        return -1; //check for a draw
 
-    return 0; //The player loses because we checked all the win conditions
+    return 0;
 }
 
 function game() { 
