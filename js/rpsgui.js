@@ -24,6 +24,13 @@ function playRound(playerSelection, computerSelection) {
     return 0;
 }
 
+function reset() {
+    const pscorefield = document.querySelector("#pscore");
+    const cscorefield = document.querySelector("#cscore");
+    pscorefield.textContent = 0;
+    cscorefield.textContent = 0;
+}
+
 function play(choice) {
 
     const fieldplayer = document.querySelector(".playerchoice");
@@ -46,6 +53,14 @@ function play(choice) {
         cscorefield.textContent++;
     } else {
         fieldresult.textContent = "It's a draw";
+    }
+    const overallresult = document.querySelector(".overallresult")
+    if (pscorefield.textContent == 5) {
+        overallresult.textContent = "Player wins the match!";
+        reset();
+    } else if (cscorefield.textContent == 5) {
+        overallresult.textContent = "Computer wins the match!";
+        reset();
     }
 }
 
