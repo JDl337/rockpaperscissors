@@ -35,10 +35,15 @@ function play(choice) {
     const result = playRound(choice, computerChoice);
     fieldresult = document.querySelector(".matchresult");
 
+    const pscorefield = document.querySelector("#pscore");
+    const cscorefield = document.querySelector("#cscore");
+
     if (result === 1) {
         fieldresult.textContent = `${choice} beats ${computerChoice}. You Win!`;
+        pscorefield.textContent++;
     } else if (result === 0) {
         fieldresult.textContent = `${computerChoice} beats ${choice}. You lose...`;
+        cscorefield.textContent++;
     } else {
         fieldresult.textContent = "It's a draw";
     }
